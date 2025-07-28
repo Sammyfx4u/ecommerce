@@ -1,21 +1,13 @@
 @import "tailwindcss";
 
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-@theme {
+:root{
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Poppins', sans-serif;
-
- 
   --color-black: #010101;
   --color-bg: #FFFFFF;
-  --color-bg-light: #ECECEC
-  --color-muted: #F7F7F7
+  --color-bg-light: #ECECEC;
+  --color-muted: #F7F7F7;
 
 }
 @layer utilities {
