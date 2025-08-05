@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import category1 from "../assets/category1.png";
-import category2 from "../assets/category2.png";
-import category3 from "../assets/category3.png";
-import category4 from "../assets/category4.png";
-import shoe1 from "../assets/shoe1.png";
-import shoe2 from "../assets/shoe2.png";
-import shoe3 from "../assets/shoe3.png";
-import shoe4 from "../assets/shoe4.png";
-import shoe5 from "../assets/shoe5.png";
-import shoe6 from "../assets/shoe6.png";
-import shoe7 from "../assets/shoe7.png";
-import shoe8 from "../assets/shoe8.png";
-import shoe9 from "../assets/shoe9.png";
-import shoe10 from "../assets/shoe10.png";
-import shoe11 from "../assets/shoe11.png";
-import shoe12 from "../assets/shoe12.png";
+import { FaStar, FaStarHalf, FaRegStar } from "react-icons/fa";
+import category1 from "../assets/images/category1.png";
+import category2 from "../assets/images/category2.png";
+import category3 from "../assets/images/category3.png";
+import category4 from "../assets/images/category4.png";
+import shoe1 from "../assets/images/shoe1.png";
+import shoe2 from "../assets/images/shoe2.png";
+import shoe3 from "../assets/images/shoe3.png";
+import shoe4 from "../assets/images/shoe4.png";
+import shoe5 from "../assets/images/shoe5.png";
+import shoe6 from "../assets/images/shoe6.png";
+import shoe7 from "../assets/images/shoe7.png";
+import shoe8 from "../assets/images/shoe8.png";
+import shoe9 from "../assets/images/shoe9.png";
+import shoe10 from "../assets/images/shoe10.png";
+import shoe11 from "../assets/images/shoe11.png";
+import shoe12 from "../assets/images/shoe12.png";
 import heartIcon from "../assets/icon/heart.svg";
-import { FaStar } from "react-icons/fa";
+import ChevronRight from "../assets/icon/ChevronRight.svg";
 
 const shoeImages = [
   shoe1, shoe2, shoe3, shoe4, shoe5, shoe6,
@@ -44,22 +45,50 @@ const Category = () => {
     }));
   };
 
+  // Function to render stars based on rating
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+    return (
+      <>
+        {[...Array(fullStars)].map((_, i) => (
+          <FaStar key={`full-${i}`} color="var(--color-black)" />
+        ))}
+        {hasHalfStar && <FaStarHalf key="half" color="var(--color-black)" />}
+        {[...Array(emptyStars)].map((_, i) => (
+          <FaRegStar key={`empty-${i}`} color="var(--color-black)" />
+        ))}
+      </>
+    );
+  };
+
   return (
-    <div className="px-6 lg:px-16 py-10 text-[--color-black] font-[--font-base]">
+    <div className="px-6 lg:px-16 py-10 text-body text-[var(--color-black)]">
       {/* Breadcrumb */}
-      <div className="text-sm text-gray-500 mb-2">HOME &gt; MEN</div>
-      <h2 className="text-2xl font-bold mb-4">MEN</h2>
+      <div className="flex items-center text-sm text-[var(--color-grey)] mb-2">
+      <span>HOME</span>
+      <img
+        src={ChevronRight}
+        alt="Arrow"
+        className="mx-1 w-2.5 h-2.5 object-contain"
+      />
+      <span className="text-[var(--color-grey)] font-medium">MEN</span>
+    </div>
+
+      <h2 className="text-2xl font-bold text-heading mb-4">MEN</h2>
 
       {/* Categories */}
-      <div className="flex gap-4 overflow-auto mb-8">
+      <div className="flex gap-3 mb-8  w-full">
         {[category1, category2, category3, category4].map((img, i) => (
-          <div key={i} className="relative min-w-[200px]">
+          <div key={i} className="relative w-full">
             <img
               src={img}
               alt="category"
               className="w-full h-48 object-cover rounded-sm"
             />
-            <button className="absolute bottom-3 left-3 bg-white text-black px-3 py-1 text-xs font-semibold">
+            <button className="absolute bottom-3 left-3 bg-[var(--color-bg)] text-[var(--color-black)] px-3 py-1 text-xs font-semibold">
               {["ATHLETIC SHOES", "CASUAL SNEAKERS", "RETRO", "WHITE"][i]} →
             </button>
           </div>
@@ -68,83 +97,83 @@ const Category = () => {
 
       {/* Filters & Sort */}
       <div className="flex justify-between items-center mb-4">
-        <button className="border border-gray-300 text-sm px-4 py-2">Filters ⌵</button>
-        <button className="border border-gray-300 text-sm px-4 py-2">SORT BY: Popularity</button>
+        <button className="border border-[var(--color-bg-light)] text-sm px-4 py-2 text-[var(--color-black)]">Filters ⌵</button>
+        <button className="border border-[var(--color-bg-light)] text-sm px-4 py-2 text-[var(--color-black)]">SORT BY: Popularity</button>
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {products.map((product) => (
           <div
             key={product.id}
-            className="bg-white shadow-sm p-4 relative text-sm"
+            className="bg-[var(--color-bg)] p-4 relative text-xs"
           >
-            {/* SALE Tag */}
-            <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1">SALE</div>
-
-            {/* Product Image */}
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-40 object-contain mb-3"
-            />
-
-            {/* Name */}
-            <h3 className="font-semibold mb-1">{product.name}</h3>
-
-            {/* Rating */}
-            <div className="flex items-center gap-1 mb-1">
-              {[...Array(5)].map((_, i) => {
-                const rating = product.rating;
-                if (i + 1 <= Math.floor(rating)) {
-                  return <FaStar key={i} className="text-black w-4 h-4" />;
-                } else if (i + 0.5 <= rating) {
-                  return <FaStar key={i} className="text-black w-4 h-4 opacity-50" />;
-                } else {
-                  return <FaStar key={i} className="text-gray-300 w-4 h-4" />;
-                }
-              })}
-              <span className="text-sm text-gray-600 ml-1">
-                {product.rating.toFixed(2)} ({product.reviews} reviews)
-              </span>
-            </div>
-
-            {/* Price */}
-            <div className="mb-1">
-              <span className="line-through text-gray-400 mr-2">{product.oldPrice}</span>
-              <span className="font-bold">{product.newPrice}</span>
-            </div>
-
-            {/* Tags */}
-            <div className="text-xs text-gray-600">Specification:</div>
-            <div className="text-xs text-gray-800 mb-3">
-              {product.tags.join(", ")}
-            </div>
-
-            {/* Heart Button */}
-            <div
-              onClick={() => toggleLike(product.id)}
-              className={`w-7 h-7 absolute bottom-3 right-3 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 ${
-                likedItems[product.id] ? "bg-red-500" : "bg-transparent"
-              }`}
-            >
+            {/* Image Container with Gray Background */}
+            <div className="bg-[var(--color-muted)] p-4 relative">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-[200px] object-contain mb-3"
+              />
+              <span className="absolute top-2 left-2 bg-[var(--color-bg)] text-[var(--color-black)] text-[10px] font-semibold px-1 py-0.5 border border-[var(--color-black)]">SALE</span>
               <img
                 src={heartIcon}
                 alt="heart"
-                className={`w-4 h-4 ${likedItems[product.id] ? "invert brightness-200" : ""}`}
+                className="absolute bottom-2 right-2 w-3 h-3 cursor-pointer"
+                onClick={() => toggleLike(product.id)}
               />
             </div>
+
+            {/* Name */}
+            <h3 className="mt-3 font-semibold text-sm text-[var(--color-black)]">{product.name}</h3>
+
+            {/* Rating */}
+            <div className="flex items-center gap-2 mb-1">
+              {renderStars(product.rating)}
+              <span className="text-[var(--color-grey)] text-xs">{product.rating.toFixed(1)} ({product.reviews} reviews)</span>
+            </div>
+
+            {/* Price */}
+            <div className="mb-2">
+              <span className="line-through text-[var(--color-grey)] mr-1">{product.oldPrice}</span>
+              <span className="font-bold text-[var(--color-black)]">{product.newPrice}</span>
+            </div>
+
+            {/* Style Images */}
+            <div className="flex items-center gap-1 mb-1">
+              <img
+                src={product.image}
+                alt="Style 1"
+                className="w-6 h-6 object-contain border"
+              />
+              <img
+                src={product.image}
+                alt="Style 2"
+                className="w-6 h-6 object-contain border"
+              />
+              <img
+                src={product.image}
+                alt="Style 3"
+                className="w-6 h-6 object-contain border"
+              />
+              <span className="text-[var(--color-grey)] text-[11px]">+3 Style</span>
+            </div>
+
+            {/* Specification */}
+            <p className="text-[var(--color-grey)] text-[11px]">
+              <span className="font-semibold text-[var(--color-black)]">Specification:</span> {product.tags.join(", ")}
+            </p>
           </div>
         ))}
       </div>
-
+      
       {/* Load More */}
       <div className="flex justify-center mt-10">
-        <button className="border border-gray-300 px-6 py-2 text-sm">LOAD MORE</button>
+        <button className="border border-[var(--color-bg-light)] px-6 py-2 text-sm text-[var(--color-black)]">LOAD MORE</button>
       </div>
 
       {/* Footer Text */}
-      <div className="text-xs text-gray-700 mt-10 space-y-4 max-w-4xl mx-auto">
+      <div className="text-xs text-[var(--color-grey)] mt-10 space-y-4 max-w-4xl mx-auto">
         <p>
           Fly through history with our aircraft-specific squadrons, recreating the story of aviation
           with meticulously hand-carved and hand-painted wooden models. Gift your unique aviator a

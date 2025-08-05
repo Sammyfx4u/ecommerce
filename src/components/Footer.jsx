@@ -1,8 +1,8 @@
 import React from "react";
 
 // Images
-import backgroundImage from "../assets/footer-bg.svg";
-import logo from "../assets/logo.svg";
+import backgroundImage from "../assets/images/footer-bg.svg";
+import logo from "../assets/images/logo.svg";
 
 // Icons
 import facebookIcon from "../assets/icon/facebook.svg";
@@ -18,7 +18,7 @@ import paypalIcon from "../assets/icon/paypal.svg";
 
 const Footer = () => {
   return (
-    <footer className="text-[--color-black] text-body">
+    <footer className="text-body text-[var(--color-black)]">
       {/* Newsletter CTA */}
       <section
         className="bg-cover bg-center text-white text-center py-16 px-4"
@@ -33,16 +33,16 @@ const Footer = () => {
           <br />
           and the latest trends.
         </p>
-        <form className="mt-6 flex justify-center flex-wrap gap-2">
+        <form className="mt-6 flex justify-center flex-wrap gap-0">
           <input
             type="email"
             placeholder="Your Email"
-            className="px-4 py-3 w-64 rounded-sm text-black outline-none"
+            className="px-4 py-3 w-96 text-[var(--color-black)] outline-none bg-[var(--color-bg)] border border-gray-300 rounded-none"
             required
           />
           <button
             type="submit"
-            className="bg-black text-white px-6 py-3 rounded-sm text-sm font-semibold hover:opacity-90"
+            className="bg-[var(--color-black)] text-white px-6 py-3 text-sm font-semibold hover:opacity-90 border border-[var(--color-black)] rounded-none"
           >
             SIGN UP →
           </button>
@@ -50,12 +50,12 @@ const Footer = () => {
       </section>
 
       {/* Footer Main Content */}
-      <section className="bg-white py-12 px-6 md:px-12">
+      <section className="bg-[var(--color-bg)] py-12 px-6 md:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 text-sm">
           {/* Column 1 */}
           <div className="md:col-span-1 space-y-4">
             <img src={logo} alt="Zapatos Logo" className="h-10" />
-            <p>
+            <p className="text-body">
               Not Just Shoes, but a Statement.
               <br />
               Kicks Designed to Keep You One Step Ahead.
@@ -73,11 +73,11 @@ const Footer = () => {
             <div className="pt-4 space-y-2 text-[15px]">
               <div className="flex items-center gap-2">
                 <img src={phoneIcon} alt="Phone" className="h-4 w-4" />
-                <span>08978978789</span>
+                <span className="text-body">08978978789</span>
               </div>
               <div className="flex items-center gap-2">
                 <img src={emailIcon} alt="Email" className="h-4 w-4" />
-                <span>supportoursmallbusiness@g.com</span>
+                <span className="text-body">supportoursmallbusiness@g.com</span>
               </div>
             </div>
           </div>
@@ -86,9 +86,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-heading mb-3">SHOP</h4>
             <ul className="space-y-2">
-              <li>Men</li>
-              <li>Kids</li>
-              <li>Women</li>
+              <li className="text-body">Men</li>
+              <li className="text-body">Kids</li>
+              <li className="text-body">Women</li>
             </ul>
           </div>
 
@@ -96,12 +96,12 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-heading mb-3">BRANDS</h4>
             <ul className="space-y-2">
-              <li>Adidas</li>
-              <li>Nike</li>
-              <li>Fila</li>
-              <li>Brooks</li>
-              <li>Mizuna</li>
-              <li>Salomon</li>
+              <li className="text-body">Adidas</li>
+              <li className="text-body">Nike</li>
+              <li className="text-body">Fila</li>
+              <li className="text-body">Brooks</li>
+              <li className="text-body">Mizuna</li>
+              <li className="text-body">Salomon</li>
             </ul>
           </div>
 
@@ -109,10 +109,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-heading mb-3">QUICK LINKS</h4>
             <ul className="space-y-2">
-              <li>Return</li>
-              <li>Shipping</li>
-              <li>Terms & Conditions</li>
-              <li>Privacy Policy</li>
+              <li className="text-body">Return</li>
+              <li className="text-body">Shipping</li>
+              <li className="text-body">Terms & Conditions</li>
+              <li className="text-body">Privacy Policy</li>
             </ul>
           </div>
 
@@ -120,17 +120,17 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-heading mb-3">SUPPORT</h4>
             <ul className="space-y-2">
-              <li>About Us</li>
-              <li>FAQ’s</li>
-              <li>Contact Us</li>
+              <li className="text-body">About Us</li>
+              <li className="text-body">FAQ’s</li>
+              <li className="text-body">Contact Us</li>
             </ul>
           </div>
         </div>
       </section>
 
       {/* Bottom Bar */}
-      <div className="bg-black text-white text-xs py-4 px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-center">
-        <p>© 2024 Zapatos. Store by Blazecommerce.io</p>
+      <div className="bg-[var(--color-black)] text-white text-xs py-4 px-6 flex flex-wrap justify-center items-center gap-6 text-center">
+        <p className="text-body">© 2024 Zapatos. Store by Blazecommerce.io</p>
         <div className="flex items-center gap-4">
           <img src={mastercardIcon} alt="Mastercard" className="h-5" />
           <img src={visaIcon} alt="Visa" className="h-5" />
