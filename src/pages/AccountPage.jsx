@@ -1,12 +1,12 @@
 import React from 'react';
 import Account from '../components/Account';
 
-function AccountPage() {
+const AccountPage = () => {
   return (
     <div>
       <Account />
     </div>
   );
-}
+};
 
 export default AccountPage;

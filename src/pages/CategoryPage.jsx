@@ -1,7 +1,7 @@
 import React from 'react';
 import Category from '../components/Category';
 
-function CategoryPage() {
+const CategoryPage = () => {
   return (
     <div>
       <Category />

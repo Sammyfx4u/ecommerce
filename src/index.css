@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 :root {
@@ -7,27 +9,20 @@
   --color-bg: #ffffff;
   --color-bg-light: #ececec;
   --color-muted: #f7f7f7;
-  --color-grey: #767676
+  --color-grey: #767676;
 }
 
 @layer utilities {
   .text-body {
     font-family: var(--font-body);
-  }
-
-  .text-heading {
-    font-family: var(--font-heading);
-  }
-
-   .text-body {
     @apply text-base leading-relaxed;
   }
 
   .text-heading {
+    font-family: var(--font-heading);
     @apply text-lg font-medium leading-snug sm:text-xl md:text-2xl;
   }
 }
-
 
 body {
   background-color: var(--color-bg);
@@ -35,15 +30,4 @@ body {
   font-family: var(--font-body); 
   margin: 0;
   padding: 0;
-}
-
-@layer base {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-bg: #1a1a1a;
-      --color-bg-light: #2d2d2d;
-      --color-muted: #3a3a3a;
-      --color-black: #ffffff;
-    }
-  }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 
-function HomePage() {
+const HomePage = () =>{
   return (
     <div>
       <Hero />
