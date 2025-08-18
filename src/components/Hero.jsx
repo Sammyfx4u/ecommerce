@@ -71,76 +71,80 @@ const Homepage = () => {
   return (
     <main className="text-body text-[var(--color-black)]">
       {/* === HERO SECTION === */}
-      <section className="bg-[var(--color-muted)] px-4 md:px-12 py-8">
-        <h1 className="sr-only">Zapatos Homepage</h1>
-        <div className="relative max-w-[1440px] mx-auto overflow-hidden">
-          {/* Arrows */}
-          <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
-            aria-label="Previous Slide"
-          >
-            <img src={leftArrow} alt="" className="w-3 h-3" />
-          </button>
-          <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
-            aria-label="Next Slide"
-          >
-            <img src={rightArrow} alt="" className="w-3 h-3" />
-          </button>
+<section className="bg-[var(--color-muted)] px-2 md:px-4 py-8 md:py-8">
+  <h1 className="sr-only">Zapatos Homepage</h1>
+  <div className="relative mx-auto overflow-hidden max-w-full">
+    {/* Arrows */}
+    <button
+      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
+      aria-label="Previous Slide"
+    >
+      <img src={leftArrow} alt="" className="w-3 h-3" />
+    </button>
+    <button
+      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
+      aria-label="Next Slide"
+    >
+      <img src={rightArrow} alt="" className="w-3 h-3" />
+    </button>
 
-          {/* Hero Content */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Left Text */}
-            <div className="w-full md:w-1/3 px-2 md:px-4 text-left">
-              <p className="text-[16px] font-medium leading-relaxed text-[var(--color-black)]">
-                Discover the latest drops, limited editions, and classic styles
-                designed for every step of your journey
-              </p>
-            </div>
+    {/* Hero Content */}
+    <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 min-h-[400px] md:min-h-[500px]">
+      
+      {/* Left Text - hidden on mobile */}
+      <div className="hidden md:block w-full md:w-1/3 px-1 md:px-2 text-left mt-16 md:mt-36">
+        <p className="text-[16px] font-medium leading-relaxed text-[var(--color-black)]">
+          Discover the latest drops, limited editions, and classic styles
+          designed for every step of your journey
+        </p>
+      </div>
 
-            {/* Center Logo + Shoe */}
-            <div className="w-full md:w-1/3 relative flex flex-col items-center">
-              <span
-                className="text-[200px] italic font-extrabold text-[var(--color-black)] leading-none z-0 font-[sans-serif]"
-                aria-hidden="true"
-              >
-                Zapatos
-              </span>
-              <img
-                src={heroShoe}
-                alt="Featured Sneaker"
-                className="absolute top-1/2 left-1/2 w-[340px] -translate-x-1/2 -translate-y-1/2 z-10"
-              />
-              <button className="mt-40 bg-[var(--color-black)] text-white text-sm px-6 py-3 z-20 hover:opacity-90 transition">
-                Explore New Arrivals →
-              </button>
-            </div>
+      {/* Center Logo + Shoe */}
+      <div className="w-full md:w-1/3 relative flex flex-col items-center">
+        <span
+          className="text-[80px] md:text-[300px] italic font-extrabold text-[var(--color-black)] leading-none z-0 font-[poppins] -mt-3 md:-mt-10"
+          aria-hidden="true"
+        >
+          Zapatos
+        </span>
+        <img
+          src={heroShoe}
+          alt="Featured Sneaker"
+          className="absolute top-[50%] md:top-[65%] left-1/2 w-[280px] md:w-[400px] -translate-x-1/2 -translate-y-1/2 z-10"
+        />
+        <button className="mt-[300px] md:mt-40 bg-[var(--color-black)] text-white text-sm px-6 py-3 z-20 hover:opacity-90 transition">
+          Explore New Arrivals →
+        </button>
+      </div>
 
-            {/* Right Info */}
-            <div className="w-full md:w-1/3 px-2 md:px-4 text-right">
-              <p className="text-[16px] font-semibold mb-3 text-[var(--color-black)]">
-                Quality you can count on
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-end gap-3">
-                {[
-                  { icon: shippingIcon, label: "Shipping" },
-                  { icon: returnIcon, label: "Returns" },
-                  { icon: warrantyIcon, label: "Warranty" },
-                  { icon: faqIcon, label: "FAQ" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-1 border px-3 py-1 text-sm text-[var(--color-black)]"
-                  >
-                    <img src={item.icon} alt="" className="w-4 h-4" />
-                    <span className="text-body">{item.label}</span>
-                  </div>
-                ))}
-              </div>
+      {/* Right Info - hidden on mobile */}
+      <div className="hidden md:block w-full md:w-1/3 px-1 md:px-2 text-right mt-16 md:mt-36">
+        <p className="text-[16px] font-semibold mb-3 text-[var(--color-black)]">
+          Quality you can count on
+        </p>
+        <div className="flex flex-wrap justify-center md:justify-end gap-2 md:gap-3">
+          {[
+            { icon: shippingIcon, label: "Shipping" },
+            { icon: returnIcon, label: "Returns" },
+            { icon: warrantyIcon, label: "Warranty" },
+            { icon: faqIcon, label: "FAQ" },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="flex items-center gap-1 border px-3 py-1 text-sm text-[var(--color-black)]"
+            >
+              <img src={item.icon} alt="" className="w-4 h-4" />
+              <span className="text-body">{item.label}</span>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
       {/* === FIND YOUR PERFECT PAIR === */}
       <section className="px-4 md:px-12 py-8">
@@ -164,12 +168,12 @@ const Homepage = () => {
           ].map((item) => (
             <article
               key={item.label}
-              className="relative group cursor-pointer h-[200px] overflow-hidden shadow-sm"
+              className="relative group cursor-pointer h-[300px] overflow-hidden shadow-sm"
             >
               <img
                 src={item.img}
                 alt={`${item.label} Shoes`}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover  transition-transform duration-300 group-hover:scale-105" style={{ objectPosition: "50% 90%" }}
               />
               <button className="absolute bottom-4 left-4 bg-[var(--color-bg)] text-[var(--color-black)] text-xs px-3 py-1 shadow-sm group-hover:bg-[var(--color-black)] group-hover:text-white transition-all duration-300">
                 {item.label} →
