@@ -278,11 +278,13 @@ const Homepage = () => {
           </div>
         </div>
         <article className="relative w-full h-[460px] rounded-md overflow-hidden">
-          <img
-            src={trendingMain}
-            alt="Chunky Dad Sneakers"
-            className="w-full h-full object-cover"
-          />
+         <img
+  src={trendingMain}
+  alt="Chunky Dad Sneakers"
+  className="w-full h-full object-cover"
+  style={{ objectPosition: "50% 85%" }} 
+/>
+
           <div className="absolute top-4 right-4 text-right bg-[var(--color-bg)]/90 p-3 rounded-sm">
             <h3 className="font-semibold text-sm text-[var(--color-black)]">
               Chunky Dad Sneakers
