@@ -127,7 +127,7 @@ const Navbar = () => {
       </div>
 
       {/* Bottom Menu (Desktop Only) */}
-      <div className="hidden md:flex bg-gray-100 py-3 px-6 justify-center gap-6 text-sm font-medium uppercase">
+      <div className="hidden md:flex bg-[var(--color-muted)] py-3 px-6 justify-center gap-6 text-sm font-medium uppercase">
         {["MEN", "KIDS", "WOMEN", "SPORT", "BRANDS", "SANDALS"].map((item) => (
           <div
             key={item}

@@ -41,7 +41,6 @@ import blog3 from "../assets/images/blog3.png";
 import blog4 from "../assets/images/blog4.png";
 
 const Homepage = () => {
-  // Sample products with ratings
   const products = [
     { id: 0, image: product1, name: "Brooks Ghost 15", rating: 4.9, reviews: 15, oldPrice: "$772.00", newPrice: "$299.00", tags: ["Running", "Engineered mesh"] },
     { id: 1, image: product2, name: "Brooks Ghost 15", rating: 4.7, reviews: 12, oldPrice: "$772.00", newPrice: "$299.00", tags: ["Running", "Engineered mesh"] },
@@ -49,7 +48,6 @@ const Homepage = () => {
     { id: 3, image: product4, name: "Brooks Ghost 15", rating: 4.5, reviews: 8, oldPrice: "$772.00", newPrice: "$299.00", tags: ["Running", "Engineered mesh"] },
   ];
 
-  // Function to render stars based on rating
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
@@ -70,86 +68,73 @@ const Homepage = () => {
 
   return (
     <main className="text-body text-[var(--color-black)]">
-      {/* === HERO SECTION === */}
-<section className="bg-[var(--color-muted)] px-2 md:px-4 py-8 md:py-8">
-  <h1 className="sr-only">Zapatos Homepage</h1>
-  <div className="relative mx-auto overflow-hidden max-w-full">
-    {/* Arrows */}
-    <button
-      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
-      aria-label="Previous Slide"
-    >
-      <img src={leftArrow} alt="" className="w-3 h-3" />
-    </button>
-    <button
-      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
-      aria-label="Next Slide"
-    >
-      <img src={rightArrow} alt="" className="w-3 h-3" />
-    </button>
-
-    {/* Hero Content */}
-    <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 min-h-[400px] md:min-h-[500px]">
-      
-      {/* Left Text - hidden on mobile */}
-      <div className="hidden md:block w-full md:w-1/3 px-1 md:px-2 text-left mt-16 md:mt-36">
-        <p className="text-[16px] font-medium leading-relaxed text-[var(--color-black)]">
-          Discover the latest drops, limited editions, and classic styles
-          designed for every step of your journey
-        </p>
-      </div>
-
-      {/* Center Logo + Shoe */}
-      <div className="w-full md:w-1/3 relative flex flex-col items-center">
-        <span
-          className="text-[80px] md:text-[300px] italic font-extrabold text-[var(--color-black)] leading-none z-0 font-[poppins] -mt-3 md:-mt-10"
-          aria-hidden="true"
-        >
-          Zapatos
-        </span>
-        <img
-          src={heroShoe}
-          alt="Featured Sneaker"
-          className="absolute top-[50%] md:top-[65%] left-1/2 w-[280px] md:w-[400px] -translate-x-1/2 -translate-y-1/2 z-10"
-        />
-        <button className="mt-[300px] md:mt-40 bg-[var(--color-black)] text-white text-sm px-6 py-3 z-20 hover:opacity-90 transition">
-          Explore New Arrivals →
-        </button>
-      </div>
-
-      {/* Right Info - hidden on mobile */}
-      <div className="hidden md:block w-full md:w-1/3 px-1 md:px-2 text-right mt-16 md:mt-36">
-        <p className="text-[16px] font-semibold mb-3 text-[var(--color-black)]">
-          Quality you can count on
-        </p>
-        <div className="flex flex-wrap justify-center md:justify-end gap-2 md:gap-3">
-          {[
-            { icon: shippingIcon, label: "Shipping" },
-            { icon: returnIcon, label: "Returns" },
-            { icon: warrantyIcon, label: "Warranty" },
-            { icon: faqIcon, label: "FAQ" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="flex items-center gap-1 border px-3 py-1 text-sm text-[var(--color-black)]"
-            >
-              <img src={item.icon} alt="" className="w-4 h-4" />
-              <span className="text-body">{item.label}</span>
+      <section className="mt-3 px-[2px] md:px-6">
+        <h1 className="sr-only">Zapatos Homepage</h1>
+        <div className="relative w-full mx-auto bg-[var(--color-bg-light)] overflow-hidden px-2 md:px-4 py-8 md:py-8">
+          <button
+            className="absolute left-2 top-[55%] -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
+            aria-label="Previous Slide"
+          >
+            <img src={leftArrow} alt="" className="w-3 h-3" />
+          </button>
+          <button
+            className="absolute right-2 top-[55%] -translate-y-1/2 z-10 bg-[var(--color-grey)] w-8 h-8 flex items-center justify-center"
+            aria-label="Next Slide"
+          >
+            <img src={rightArrow} alt="" className="w-3 h-3" />
+          </button>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 min-h-[400px] md:min-h-[500px]">
+            <div className="hidden md:block w-full md:w-1/3 px-1 md:px-2 text-left mt-36 md:mt-56">
+              <p className="text-[14px] font-medium leading-relaxed">
+                Discover the latest drops, limited editions, and classic styles
+                designed for every step of your journey
+              </p>
             </div>
-          ))}
+            <div className="w-full md:w-1/3 relative flex flex-col items-center">
+              <span
+                className="text-[80px] md:text-[300px] font-extrabold leading-none z-0 font-[poppins] text-center -mt-3 md:-mt-10 tracking-tight"
+                style={{ fontStyle: "oblique 14deg" }}
+                aria-hidden="true"
+              >
+                Zapatos
+              </span>
+              <img
+                src={heroShoe}
+                alt="Featured Sneaker"
+                className="absolute top-[50%] md:top-[60%] left-1/2 w-[280px] md:w-[450px] -translate-x-1/2 -translate-y-1/2 z-10"
+              />
+              <button className="mt-[300px] md:mt-40 bg-[var(--color-black)] text-white text-sm px-6 py-3 z-20 hover:opacity-90 transition">
+                Explore New Arrivals →
+              </button>
+            </div>
+            <div className="hidden md:block w-full md:w-1/3 px-1 md:px-2 text-right mt-44 md:mt-64">
+              <p className="text-[14px] font-semibold mb-3">Quality you can count on</p>
+              <div className="flex justify-center md:justify-end items-center gap-4 text-xs">
+                <div className="flex items-center border border-black px-3 py-2">
+                  {[
+                    { icon: shippingIcon, label: "Shipping" },
+                    { icon: returnIcon, label: "Returns" },
+                    { icon: warrantyIcon, label: "Warranty" },
+                    { icon: faqIcon, label: "FAQ" },
+                  ].map((item, index, arr) => (
+                    <div key={item.label} className="flex items-center gap-1">
+                      <img src={item.icon} alt="" className="w-4 h-4" />
+                      <span className="text-body">{item.label}</span>
+                      {index !== arr.length - 1 && (
+                        <span className="mx-3 h-4 border-r border-black"></span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
-
-
-
-      {/* === FIND YOUR PERFECT PAIR === */}
-      <section className="px-4 md:px-12 py-8">
-        <div className="flex justify-center mb-6">
-          <div className="flex items-center w-[90%]">
+      <section className="px-[2px] md:px-6 py-8">
+        <div className="flex justify-center mb-6 max-w-[1686px] mx-auto">
+          <div className="flex items-center w-full">
             <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
             <h2 className="mx-4 text-center text-[var(--color-black)] font-semibold text-[16px] tracking-wide uppercase whitespace-nowrap">
               Find Your Perfect Pair
@@ -173,7 +158,8 @@ const Homepage = () => {
               <img
                 src={item.img}
                 alt={`${item.label} Shoes`}
-                className="w-full h-full object-cover  transition-transform duration-300 group-hover:scale-105" style={{ objectPosition: "50% 90%" }}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                style={{ objectPosition: "50% 90%" }}
               />
               <button className="absolute bottom-4 left-4 bg-[var(--color-bg)] text-[var(--color-black)] text-xs px-3 py-1 shadow-sm group-hover:bg-[var(--color-black)] group-hover:text-white transition-all duration-300">
                 {item.label} →
@@ -183,26 +169,23 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* === HAPPENING NOW === */}
-      <section className="bg-[var(--color-bg)] text-[var(--color-black)] px-4 md:px-12 py-12">
-       <header className="flex flex-col items-center mb-6">
-  <div className="flex items-center w-full">
-    <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
-    <h2 className="mx-4 text-center text-[var(--color-black)] font-semibold text-xl uppercase whitespace-nowrap">
-      Happening Now
-    </h2>
-    <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
-  </div>
-  <a
-    href="#"
-    className="mt-2 text-xs text-[var(--color-black)] underline whitespace-nowrap"
-  >
-    See all →
-  </a>
-</header>
-
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <section className="bg-[var(--color-bg)] text-[var(--color-black)] px-[2px] md:px-6 py-12">
+        <header className="flex flex-col items-center mb-6 max-w-[1686px] mx-auto">
+          <div className="flex items-center w-full">
+            <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
+            <h2 className="mx-4 text-center text-[var(--color-black)] font-semibold text-xl uppercase whitespace-nowrap">
+              Happening Now
+            </h2>
+            <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
+          </div>
+          <a
+            href="#"
+            className="mt-2 text-xs text-[var(--color-black)] underline whitespace-nowrap"
+          >
+            See all →
+          </a>
+        </header>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-[1686px] mx-auto">
           {products.map((product) => (
             <article key={product.id} className="text-xs">
               <div className="relative bg-[var(--color-muted)] p-4">
@@ -266,10 +249,9 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* === TRENDING SNEAKER STYLE === */}
-      <section className="px-4 md:px-12 py-8 bg-[var(--color-bg)]">
-        <div className="flex justify-center mb-4">
-          <div className="flex items-center w-[90%]">
+      <section className="px-[2px] md:px-6 py-8 bg-[var(--color-bg)]">
+        <div className="flex justify-center mb-4 max-w-[1686px] mx-auto">
+          <div className="flex items-center w-full">
             <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
             <h2 className="mx-4 text-center text-[var(--color-black)] font-semibold text-[16px] uppercase whitespace-nowrap">
               Trending Sneaker Style
@@ -277,14 +259,13 @@ const Homepage = () => {
             <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
           </div>
         </div>
-        <article className="relative w-full h-[460px] rounded-md overflow-hidden">
-         <img
-  src={trendingMain}
-  alt="Chunky Dad Sneakers"
-  className="w-full h-full object-cover"
-  style={{ objectPosition: "50% 85%" }} 
-/>
-
+        <article className="relative w-full h-[460px] rounded-md overflow-hidden max-w-[1686px] mx-auto">
+          <img
+            src={trendingMain}
+            alt="Chunky Dad Sneakers"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "50% 85%" }}
+          />
           <div className="absolute top-4 right-4 text-right bg-[var(--color-bg)]/90 p-3 rounded-sm">
             <h3 className="font-semibold text-sm text-[var(--color-black)]">
               Chunky Dad Sneakers
@@ -295,7 +276,7 @@ const Homepage = () => {
             </button>
           </div>
         </article>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 max-w-[1686px] mx-auto">
           <article className="relative h-[460px] bg-[var(--color-muted)] rounded-md overflow-hidden">
             <img
               src={trend1}
@@ -359,10 +340,9 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* === BRANDS === */}
-      <section className="px-4 md:px-12 py-8 text-center">
-        <div className="flex justify-center mb-2">
-          <div className="flex items-center w-[90%]">
+      <section className="px-[2px] md:px-6 py-8 text-center">
+        <div className="flex justify-center mb-2 max-w-[1686px] mx-auto">
+          <div className="flex items-center w-full">
             <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
             <h2 className="mx-4 text-center text-[var(--color-black)] font-semibold text-[16px] uppercase whitespace-nowrap">
               Brands
@@ -373,7 +353,7 @@ const Homepage = () => {
         <a href="#" className="text-xs text-[var(--color-black)]">
           See all →
         </a>
-        <div className="mt-4 flex justify-center flex-wrap gap-6">
+        <div className="mt-4 flex justify-center flex-wrap gap-6 max-w-[1686px] mx-auto">
           {[brand1, brand2, brand3, brand4, brand5, brand6, brand7].map(
             (img, idx) => (
               <img
@@ -387,10 +367,9 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* === BLOGS === */}
-      <section className="px-4 md:px-12 py-8 bg-[var(--color-bg)]">
-        <header className="flex justify-center mb-6">
-          <div className="flex items-center w-[90%]">
+      <section className="px-[2px] md:px-6 py-8 bg-[var(--color-bg)]">
+        <header className="flex justify-center mb-6 max-w-[1686px] mx-auto">
+          <div className="flex items-center w-full">
             <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
             <h2 className="mx-4 text-center text-[var(--color-black)] font-semibold text-[16px] uppercase whitespace-nowrap">
               Blogs
@@ -398,7 +377,7 @@ const Homepage = () => {
             <div className="flex-grow h-px bg-[var(--color-bg-light)]"></div>
           </div>
         </header>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm max-w-[1686px] mx-auto">
           <article className="rounded-lg overflow-hidden bg-[var(--color-bg)] shadow-sm">
             <img
               src={blog1}
