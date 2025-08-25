@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Images
 import backgroundImage from "../assets/images/footer-bg.svg";
@@ -106,15 +107,26 @@ const Footer = () => {
           </div>
 
           {/* QUICK LINKS */}
-          <div>
-            <h4 className="font-semibold text-heading mb-3">QUICK LINKS</h4>
-            <ul className="space-y-2">
-              <li className="text-body">Return</li>
-              <li className="text-body">Shipping</li>
-              <li className="text-body">Terms & Conditions</li>
-              <li className="text-body">Privacy Policy</li>
-            </ul>
-          </div>
+<div>
+          <h4 className="font-semibold text-heading mb-3">QUICK LINKS</h4>
+          <ul className="space-y-2">
+            <li className="text-body">
+              <Link to="/category">Category Page</Link>
+            </li>
+            <li className="text-body">
+              <Link to="/return">Return</Link>
+            </li>
+            <li className="text-body">
+              <Link to="/shipping">Shipping</Link>
+            </li>
+            <li className="text-body">
+              <Link to="/terms">Terms & Conditions</Link>
+            </li>
+            <li className="text-body">
+              <Link to="/privacy">Privacy Policy</Link>
+            </li>
+          </ul>
+        </div>
 
           {/* SUPPORT */}
           <div>
